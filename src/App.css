@@ -29,7 +29,6 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.85);
     z-index: 0;
   }
   
@@ -53,7 +52,7 @@ html, body {
   
   /* Calculator Container */
   .carbon-calculator {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     padding: 30px;
@@ -160,7 +159,7 @@ html, body {
   }
   
   /* Responsive Adjustments */
-  @media (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     .carbon-calculator {
       padding: 20px;
     }
