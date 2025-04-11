@@ -35,6 +35,7 @@ function App() {
         🚗 Miles driven per week:
         <input
           type="number"
+          min="0"
           value={milesDriven}
           onChange={(e) => setMilesDriven(Number(e.target.value))}
         />
@@ -45,6 +46,7 @@ function App() {
         🍔 Meat-based meals per week:
         <input
           type="number"
+          min="0"
           value={meatMeals}
           onChange={(e) => setMeatMeals(Number(e.target.value))}
         />
@@ -55,6 +57,7 @@ function App() {
         ✈️ Short flights this year:
         <input
           type="number"
+          min="0"
           value={shortFlights}
           onChange={(e) => setShortFlights(Number(e.target.value))}
         />
@@ -65,6 +68,7 @@ function App() {
         🌍 Long flights this year:
         <input
           type="number"
+          min="0"
           value={longFlights}
           onChange={(e) => setLongFlights(Number(e.target.value))}
         />
@@ -75,6 +79,7 @@ function App() {
         🔌 Monthly electricity usage (kWh):
         <input
           type="number"
+          min="0"
           value={electricity}
           onChange={(e) => setElectricity(Number(e.target.value))}
         />
