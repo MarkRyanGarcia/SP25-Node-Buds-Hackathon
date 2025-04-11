@@ -3,11 +3,8 @@ import './App.css'
 function App() {
   const [milesDriven, setMilesDriven] = useState(0)
   const [meatMeals, setMeatMeals] = useState(0)
-  const [shortFlights, setShortFlights] = useState(0)
-  const [longFlights, setLongFlights] = useState(0)
   const [electricity, setElectricity] = useState(0)
   const [footprint, setFootprint] = useState(null)
-
   const [flightHours, setFlightHours] = useState(0)
 
   const calculateFootprint = () => {
@@ -21,7 +18,7 @@ function App() {
     const total =
       emissions.car +
       emissions.meat +
-      emissions.flights + // ✅ use this instead
+      emissions.flights + 
       emissions.electricity
   
     setFootprint(Math.round(total))
@@ -88,6 +85,7 @@ function App() {
           <p><strong>{footprint} lbs CO₂</strong> per week</p>
         </div>
       )}
+      
     </main>
   )
 }
