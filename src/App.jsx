@@ -126,10 +126,19 @@ function App() {
                 <p className="footprint-value"><strong>{footprint} lbs CO₂</strong> per week</p>
 
                 {chartData && (
-                <div className="chart-container">
-                    <h3 className="chart-title">Emissions Breakdown</h3>
-                    <Bar data={chartData} />
-                </div>
+                    <div className="chart-container">
+                        <h3 className="chart-title">Emissions Breakdown</h3>
+                        <div style={{ height: '300px' }}> {/* Fixed height container */}
+                        <Bar 
+                            data={chartData} 
+                            options={{
+                            responsive: true,
+                            maintainAspectRatio: false
+                            }}
+                        />
+                        </div>
+                    </div>
+                    )}
                 )}
             </div>
             )}

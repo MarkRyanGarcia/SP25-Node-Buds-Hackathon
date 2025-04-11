@@ -42,22 +42,41 @@ html, body {
     z-index: 1;
   }
   
-  .app-container {
+/* Modify the app-container to handle overflow */
+.app-container {
     width: 100%;
     padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Changed from center to flex-start */
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-y: auto; /* Enable vertical scrolling if needed */
   }
   
-  /* Calculator Container */
+  /* Make the calculator container scrollable */
   .carbon-calculator {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     padding: 30px;
     width: 100%;
     max-width: 600px;
+    max-height: 90vh; /* Limit maximum height */
+    overflow-y: auto; /* Enable scrolling for content */
+    margin: 20px 0; /* Add some vertical spacing */
+  }
+  
+  /* Adjust chart container */
+  .chart-container {
+    margin-top: 30px;
+    max-width: 100%; /* Ensure chart doesn't overflow */
+  }
+  
+  /* Make chart responsive */
+  .chart-container canvas {
+    max-width: 100%;
+    height: auto !important; /* Override default chart.js height */
   }
   
 
