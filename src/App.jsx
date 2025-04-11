@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import './App.css'
 function App() {
   const [milesDriven, setMilesDriven] = useState(0)
   const [meatMeals, setMeatMeals] = useState(0)
