@@ -52,74 +52,88 @@ function App() {
   }
 
   return (
-    <main style={{ fontFamily: 'sans-serif', padding: '2rem', maxWidth: '600px', margin: 'auto' }}>
-      <h1>🌍 Carbon Footprint Estimator</h1>
+    <div className="app-container">
+      <main className="carbon-calculator">
+        <h1 className="title">🌍 Carbon Footprint Estimator</h1>
 
-      <label>
-        🚗 Miles driven per week:
-        <input
-          type="number"
-          min="0"
-          value={milesDriven}
-          onChange={(e) => setMilesDriven(Number(e.target.value))}
-        />
-      </label>
-      <br />
-
-      <label>
-        🍔 Meat-based meals per week:
-        <input
-          type="number"
-          min="0"
-          value={meatMeals}
-          onChange={(e) => setMeatMeals(Number(e.target.value))}
-        />
-      </label>
-      <br />
-
-      <label>
-        ✈️ Hours flown per year:
-        <input
-          type="number"
-          min="0"
-          value={flightHours}
-          onChange={(e) => {
-            const value = Number(e.target.value)
-            setFlightHours(value < 0 ? 0 : value)
-          }}
-        />
-      </label>
-      <br />
-
-      <label>
-        🔌 Monthly electricity usage (kWh):
-        <input
-          type="number"
-          min="0"
-          value={electricity}
-          onChange={(e) => setElectricity(Number(e.target.value))}
-        />
-      </label>
-      <br />
-
-      <button onClick={calculateFootprint} style={{ marginTop: '1rem' }}>
-        Calculate
-      </button>
-
-      {footprint !== null && (
-        <div style={{ marginTop: '2rem' }}>
-          <h2>Estimated Carbon Footprint:</h2>
-          <p><strong>{footprint} lbs CO₂</strong> per week</p>
-
-          {chartData && (
-            <div style={{ marginTop: '2rem' }}>
-              <h3>Emissions Breakdown</h3>
-              <Bar data={chartData} />
-            </div>
-          )}
+        <div className="input-group">
+          <label className="input-label">
+            <span className="input-icon">🚗</span>
+            Miles driven per week:
+            <input
+              type="number"
+              min="0"
+              value={milesDriven}
+              onChange={(e) => setMilesDriven(Number(e.target.value))}
+              className="input-field"
+            />
+          </label>
         </div>
-      )}
-    </main>
+
+        <div className="input-group">
+          <label className="input-label">
+            <span className="input-icon">🍔</span>
+            Meat-based meals per week:
+            <input
+              type="number"
+              min="0"
+              value={meatMeals}
+              onChange={(e) => setMeatMeals(Number(e.target.value))}
+              className="input-field"
+            />
+          </label>
+        </div>
+
+        <div className="input-group">
+          <label className="input-label">
+            <span className="input-icon">✈️</span>
+            Hours flown per year:
+            <input
+              type="number"
+              min="0"
+              value={flightHours}
+              onChange={(e) => {
+                const value = Number(e.target.value)
+                setFlightHours(value < 0 ? 0 : value)
+              }}
+              className="input-field"
+            />
+          </label>
+        </div>
+
+        <div className="input-group">
+          <label className="input-label">
+            <span className="input-icon">🔌</span>
+            Monthly electricity usage (kWh):
+            <input
+              type="number"
+              min="0"
+              value={electricity}
+              onChange={(e) => setElectricity(Number(e.target.value))}
+              className="input-field"
+            />
+          </label>
+        </div>
+
+        <button onClick={calculateFootprint} className="calculate-button">
+          Calculate Footprint
+        </button>
+
+        {footprint !== null && (
+          <div className="results-container">
+            <h2 className="results-title">Estimated Carbon Footprint:</h2>
+            <p className="footprint-value"><strong>{footprint} lbs CO₂</strong> per week</p>
+
+            {chartData && (
+              <div className="chart-container">
+                <h3 className="chart-title">Emissions Breakdown</h3>
+                <Bar data={chartData} />
+              </div>
+            )}
+          </div>
+        )}
+      </main>
+    </div>
   )
 }
 
