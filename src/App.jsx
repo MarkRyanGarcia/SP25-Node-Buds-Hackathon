@@ -52,87 +52,89 @@ function App() {
   }
 
   return (
-    <div className="app-container">
-      <main className="carbon-calculator">
-        <h1 className="title">🌍 Carbon Footprint Estimator</h1>
+    <div class="entire-website">
+        <div className="app-container">
+        <main className="carbon-calculator">
+            <h1 className="title">🌍 Carbon Footprint Estimator</h1>
 
-        <div className="input-group">
-          <label className="input-label">
-            <span className="input-icon">🚗</span>
-            Miles driven per week:
-            <input
-              type="number"
-              min="0"
-              value={milesDriven}
-              onChange={(e) => setMilesDriven(Number(e.target.value))}
-              className="input-field"
-            />
-          </label>
-        </div>
+            <div className="input-group">
+            <label className="input-label">
+                <span className="input-icon">🚗</span>
+                Miles driven per week:
+                <input
+                type="number"
+                min="0"
+                value={milesDriven}
+                onChange={(e) => setMilesDriven(Number(e.target.value))}
+                className="input-field"
+                />
+            </label>
+            </div>
 
-        <div className="input-group">
-          <label className="input-label">
-            <span className="input-icon">🍔</span>
-            Meat-based meals per week:
-            <input
-              type="number"
-              min="0"
-              value={meatMeals}
-              onChange={(e) => setMeatMeals(Number(e.target.value))}
-              className="input-field"
-            />
-          </label>
-        </div>
+            <div className="input-group">
+            <label className="input-label">
+                <span className="input-icon">🍔</span>
+                Meat-based meals per week:
+                <input
+                type="number"
+                min="0"
+                value={meatMeals}
+                onChange={(e) => setMeatMeals(Number(e.target.value))}
+                className="input-field"
+                />
+            </label>
+            </div>
 
-        <div className="input-group">
-          <label className="input-label">
-            <span className="input-icon">✈️</span>
-            Hours flown per year:
-            <input
-              type="number"
-              min="0"
-              value={flightHours}
-              onChange={(e) => {
-                const value = Number(e.target.value)
-                setFlightHours(value < 0 ? 0 : value)
-              }}
-              className="input-field"
-            />
-          </label>
-        </div>
+            <div className="input-group">
+            <label className="input-label">
+                <span className="input-icon">✈️</span>
+                Hours flown per year:
+                <input
+                type="number"
+                min="0"
+                value={flightHours}
+                onChange={(e) => {
+                    const value = Number(e.target.value)
+                    setFlightHours(value < 0 ? 0 : value)
+                }}
+                className="input-field"
+                />
+            </label>
+            </div>
 
-        <div className="input-group">
-          <label className="input-label">
-            <span className="input-icon">🔌</span>
-            Monthly electricity usage (kWh):
-            <input
-              type="number"
-              min="0"
-              value={electricity}
-              onChange={(e) => setElectricity(Number(e.target.value))}
-              className="input-field"
-            />
-          </label>
-        </div>
+            <div className="input-group">
+            <label className="input-label">
+                <span className="input-icon">🔌</span>
+                Monthly electricity usage (kWh):
+                <input
+                type="number"
+                min="0"
+                value={electricity}
+                onChange={(e) => setElectricity(Number(e.target.value))}
+                className="input-field"
+                />
+            </label>
+            </div>
 
-        <button onClick={calculateFootprint} className="calculate-button">
-          Calculate Footprint
-        </button>
+            <button onClick={calculateFootprint} className="calculate-button">
+            Calculate Footprint
+            </button>
 
-        {footprint !== null && (
-          <div className="results-container">
-            <h2 className="results-title">Estimated Carbon Footprint:</h2>
-            <p className="footprint-value"><strong>{footprint} lbs CO₂</strong> per week</p>
+            {footprint !== null && (
+            <div className="results-container">
+                <h2 className="results-title">Estimated Carbon Footprint:</h2>
+                <p className="footprint-value"><strong>{footprint} lbs CO₂</strong> per week</p>
 
-            {chartData && (
-              <div className="chart-container">
-                <h3 className="chart-title">Emissions Breakdown</h3>
-                <Bar data={chartData} />
-              </div>
+                {chartData && (
+                <div className="chart-container">
+                    <h3 className="chart-title">Emissions Breakdown</h3>
+                    <Bar data={chartData} />
+                </div>
+                )}
+            </div>
             )}
-          </div>
-        )}
-      </main>
+        </main>
+        </div>
     </div>
   )
 }
