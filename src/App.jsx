@@ -8,22 +8,22 @@ function App() {
   const [electricity, setElectricity] = useState(0)
   const [footprint, setFootprint] = useState(null)
 
+  const [flightHours, setFlightHours] = useState(0)
+
   const calculateFootprint = () => {
     const emissions = {
-      car: milesDriven * 0.411,
-      meat: meatMeals * 6,
-      shortFlights: shortFlights * 1100,
-      longFlights: longFlights * 4400,
-      electricity: electricity * 0.92,
+      car: Number(milesDriven) || 0 * 0.411,
+      meat: Number(meatMeals) || 0 * 6,
+      flights: Number(flightHours) || 0 * 134,
+      electricity: Number(electricity) || 0 * 0.92,
     }
-
+  
     const total =
       emissions.car +
       emissions.meat +
-      emissions.shortFlights +
-      emissions.longFlights +
+      emissions.flights + // ✅ use this instead
       emissions.electricity
-
+  
     setFootprint(Math.round(total))
   }
 
@@ -54,25 +54,17 @@ function App() {
       <br />
 
       <label>
-        ✈️ Short flights this year:
+        ✈️ Hours flown per year:
         <input
-          type="number"
-          min="0"
-          value={shortFlights}
-          onChange={(e) => setShortFlights(Number(e.target.value))}
+            type="number"
+            min="0"
+            value={flightHours}
+            onChange={(e) => {
+            const value = Number(e.target.value)
+            setFlightHours(value < 0 ? 0 : value)
+            }}
         />
-      </label>
-      <br />
-
-      <label>
-        🌍 Long flights this year:
-        <input
-          type="number"
-          min="0"
-          value={longFlights}
-          onChange={(e) => setLongFlights(Number(e.target.value))}
-        />
-      </label>
+        </label>
       <br />
 
       <label>
